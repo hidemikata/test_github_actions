@@ -1,0 +1,27 @@
+name: iOS Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - name: makdir
+      run: |
+        mkdir -p testdir/ttt
+        touch  testdir/ttt/hoge.txt
+        pwd
+        find "$(pwd)" -type f;
+
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: find
+      run: |
+        pwd
+        find "$(pwd)" -type f
+        
